@@ -4,6 +4,7 @@ import App from './components/App';
 import Welcome from './components/Welcome';
 import Signin from './components/auth/Signin';
 import Signup from './components/auth/Signup';
+import ChartView from './components/ChartView';
 
 class RouterComponent extends Component{
     render(){
@@ -13,6 +14,7 @@ class RouterComponent extends Component{
                     <IndexRoute component={Welcome} />
                     <Route path='signin' component={Signin} />
                     <Route path='signup' component={Signup} />
+                    <Route path='chart' component={ChartView} />
                 </Route>
             </Router>
         );
