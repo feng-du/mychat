@@ -11,8 +11,11 @@ import '../styles/main.css';
 
 import rootReducer from './reducers';
 import Router from './router';
+import { AUTH_USER } from './actions/types';
 
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));
+
+localStorage.getItem('token') && store.dispatch({ type: AUTH_USER });
 
 ReactDOM.render(
   <Provider store={store}>

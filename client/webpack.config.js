@@ -9,14 +9,16 @@ const config = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
+        filename: 'js/[name].js',
         publicPath: '/' /** this is html src location */
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            favicon: './favicon.ico',
+            filename: './index.html'
         }),
-        new ExtractTextPlugin('style.css'),
+        new ExtractTextPlugin('css/style.css'),
         new webpack.HotModuleReplacementPlugin()
     ],
     module: {
