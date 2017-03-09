@@ -14,7 +14,7 @@ export const signin = ({ email, password }) => {
             .then(response => {
                 dispatch(authSuccess(response.data.token));
             })
-            .catch(response => {
+            .catch(({ response }) => {
                 dispatch(authError('Bad login'));
             });
         
@@ -27,7 +27,7 @@ export const signup = ({ email, password }) => {
             .then(response => {
                 dispatch(authSuccess(response.data.token));
             })
-            .catch(response => {
+            .catch(({ response }) => {
                 console.log(response);
                 dispatch(authError(response.data.error));
             });
