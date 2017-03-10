@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LeftPanel from './LeftPanel';
 import RightPanel from './RightPanel';
 
-class ChartView extends Component {
+class RoomView extends Component {
     render() {
         return(
             <div className="container-fluid">
@@ -15,4 +15,4 @@ class ChartView extends Component {
     }
 }
 
-export default ChartView;
+export default RoomView;

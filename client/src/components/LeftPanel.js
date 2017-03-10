@@ -3,7 +3,7 @@ import {
     SideBar, 
     Card, 
     CardItem 
-} from './layout';
+} from './bootstrap';
 
 class LeftPanel extends Component {
     render() {

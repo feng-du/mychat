@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { Navbar, Nav, NavItem, NavForm } from './layout';
+import { Navbar, Nav, NavItem, NavForm } from './bootstrap';
 
 class Header extends Component {
     renderLink() {

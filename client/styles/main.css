@@ -7,6 +7,21 @@ body {
   padding-top: 50px;
 }
 
+.jumbotron-dark {
+    color: rgba(255,255,255,0.75);
+    background-color: #24292e;
+    border-bottom: 0px;
+}
+
+.jumbotron-dark h1{
+    color: #fff !important;
+    border-bottom: 0px;
+}
+
+.main-content{
+  margin-top: 35px;
+}
+
 /*
  * Typography
  */
@@ -72,3 +87,4 @@ h1 {
 .form-signin {
   margin-top: 45px;
 }
+
