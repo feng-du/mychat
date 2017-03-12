@@ -12,7 +12,7 @@ const Jumbotron = (props) => {
                         <p className="lead">{children}</p>
                     </div>
 
-                    <div className="col-md-5">
+                    <div className="col-md-4 offset-md-1">
                         {item}
                     </div>
                 </div>

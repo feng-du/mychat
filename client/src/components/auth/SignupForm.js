@@ -24,7 +24,7 @@ class Signup extends Component {
         console.log(labelVisible);
         return(
              <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-                <Field name="email" component={renderField} type="email" label="Eamil Address" labelVisible={labelVisible} placeHolder={labelVisible?"Eamil Address":""}/>
+                <Field name="email" component={renderField} type="email" label="Eamil Address" labelVisible={labelVisible} placeHolder={labelVisible?"Email Address":""}/>
                 <Field name="password" component={renderField} type="password" label="Password" labelVisible={labelVisible} placeHolder={labelVisible?"Password":""}/>
                 <Field name="confirmPassword" component={renderField} type="password" label="Confirm Password" labelVisible={labelVisible} placeHolder={labelVisible?"Confirm Password":""}/>
 
