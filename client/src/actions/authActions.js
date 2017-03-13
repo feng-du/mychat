@@ -41,7 +41,7 @@ export const signout = () => {
 export const authSuccess = (dispatch, token) => {
     dispatch({ type: AUTH_USER });
     localStorage.setItem('token', token);
-    browserHistory.push('/chart');
+    browserHistory.push('/room');
 };
 
 export const authError = error => {

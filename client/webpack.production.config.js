@@ -43,6 +43,15 @@ const config = {
             {
                 test: require.resolve('bootstrap'),
                 use: 'imports-loader?jQuery=jquery, Tether=tether'
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: { limit: 40000, name: 'assets/[name]-[hash].[ext]' }
+                    }
+                ]
             }
         ]
     },

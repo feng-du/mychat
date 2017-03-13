@@ -21,7 +21,7 @@ class Signup extends Component {
 
     render() {
         const { handleSubmit, labelVisible } = this.props;
-        console.log(labelVisible);
+        
         return(
              <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
                 <Field name="email" component={renderField} type="email" label="Eamil Address" labelVisible={labelVisible} placeHolder={labelVisible?"Email Address":""}/>

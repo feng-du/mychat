@@ -6,7 +6,8 @@ import SigninView from './components/SigninView';
 import SignupView from './components/SignupView';
 import SignoutView from './components/SignoutView';
 import RequireAuth from './components/auth/RequireAuth';
-import ChartView from './components/ChartView';
+import RoomView from './components/RoomView';
+import ChatView from './components/ChatView';
 
 class RouterComponent extends Component{
     render(){
@@ -17,7 +18,8 @@ class RouterComponent extends Component{
                     <Route path='signin' component={SigninView} />
                     <Route path='signup' component={SignupView} />
                     <Route path='signout' component={SignoutView} />
-                    <Route path='chart' component={RequireAuth(ChartView)} />
+                    <Route path='room' component={RequireAuth(RoomView)} />
+                    <Route path='chart/:room' component={RequireAuth(ChatView)} />
                 </Route>
             </Router>
         );
