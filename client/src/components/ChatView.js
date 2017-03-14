@@ -22,22 +22,34 @@ class ChatView extends Component {
         const { users, chats, me } = this.props;
 
         return(
-            <div className="container-fluid">
+            <div className="container main-content">
                 <div className="row">
-                    <LeftPanel>
-                        <Card>
-                            <UserList users={users} me={me} />
-                        </Card>
-                    </LeftPanel>
+                    <div className="col-md-4">
+                        <div className="card friends">
+                            <div className="card-header">
+                                Friends
+                            </div>
+                            <div className="card-block">
+                                <div className="card-text">
+                                    <UserList users={users} me={me} />
+                                </div>
+                                
+                            </div>
+                            <div className="card-footer">
+                                <a href="#" className="btn btn-primary">View all friends</a>
+                            </div>
+                        </div>
+                        
+                    </div>
 
-                    <RightPanel title="">
+                    <div className="col-md-8">
                         <section>
                             <ChatList chats={chats} me={me} />
                         </section>
                         <section>
                             <ChatForm onSubmit={this.handleSubmit.bind(this)} me={me}/>
                         </section>
-                    </RightPanel>
+                    </div>
                 </div>
             </div>
         );

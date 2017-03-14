@@ -3,36 +3,38 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { Navbar, Nav, NavItem, NavForm } from './bootstrap';
 
+import logo from '../../assets/logo.png';
+
 class Header extends Component {
     renderLink() {
         if(this.props.authenticated)
             return <Link to='/signout' className="text-white my-2 my-sm-0">Sign out</Link>;
         else
-            return [
-                <Link to='/signin' className="text-white my-2 my-sm-0 mr-sm-2" key="1">Sign in</Link>,
-                <span key="3">or</span>,
-                <Link to='/signup' className="text-white my-2 my-sm-0 ml-sm-2" key="2">Sign up</Link>
-            ];
+            return (
+                <div>
+                    <Link to='/signin' className="text-white  mr-2" key="1">Sign in</Link>
+                    <span key="3">or</span>
+                    <Link to='/signup' className="text-white  ml-2" key="2">Sign up</Link>
+                </div>
+            );
     }
 
     render() {
         return(
-            <Navbar brand="Chat">
-                <Nav>
-                    <NavItem>
-                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                    </NavItem>
-                    <NavItem>
-                        <a className="nav-link" href="#">Profile</a>
-                    </NavItem>
-                    <NavItem>
-                        <a className="nav-link" href="#">Help</a>
-                    </NavItem>
-                </Nav>
-                <span className="navbar-text">
-                    {this.renderLink()}
-                </span>
-            </Navbar>
+            <header>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8">
+                            <img src={logo} className="logo"/>
+                        </div>
+                        <div className="col-md-4 align-self-end">
+                            {this.renderLink()}
+                        </div>
+                    
+                    </div>
+                </div>
+            </header>
+            
         );
     }
 }

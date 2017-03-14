@@ -1,90 +1,179 @@
-/*
- * Base structure
- */
-
-/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  padding-top: 50px;
+header{
+	background-image: linear-gradient(#04519b, #044687 60%, #033769);
+	color:#fff;
+	min-height:70px;
+	padding-top:25px;
 }
 
-.jumbotron-dark {
-    color: rgba(255,255,255,0.75);
-    background-color: #24292e;
-    border-bottom: 0px;
+header form{
+	float:right;
 }
 
-.jumbotron-dark h1{
-    color: #fff !important;
-    border-bottom: 0px;
+header .logo{
+	float:left;
 }
 
-.main-content{
+.card-header{
+	background-image: linear-gradient(#04519b, #044687 60%, #033769);
+	color:#fff !important;
+}
+
+.bubble{
+	position:relative;
+	width:580px;
+	min-height:65px;
+	padding:15px;
+	background:#fff;
+	border-radius: 10px;
+	border:1px solid #ccc;
+}
+
+.bubble:after{
+	content:'';
+	position:absolute;
+	border-style:solid;
+	border-width:15px 15px 15px 0;
+	border-color:transparent #fff;
+	display:block;
+	width:0;
+	z-index:1;
+	margin-top:-15px;
+	left:-15px;
+	top:50%;
+}
+
+.bubble:before{
+	content:'';
+	position:absolute;
+	border-style:solid;
+	border-width:15px 15px 15px 0;
+	border-color:transparent #ccc;
+	display:block;
+	width:0;
+	z-index:0;
+	margin-top:-15px;
+	left:-16px;
+	top:50%;
+}
+
+.post-actions{
+	margin:5px;
+}
+
+.comment-form .form-group{
+	width:90%;
+}
+
+.comment-form input[type='text']{
+	width:100%;
+}
+
+.comment-avatar img{
+	width:40px;
+	margin-right:5px;
+}
+
+.comment{
+	border:1px solid #ccc;
+	border-radius: 5px;
+	padding:3px;
+	margin:5px 0;
+	overflow:auto;
+	width:100%;
+}
+
+.friends li{
+	list-style: none;
+	padding:0 5px;
+	display:inline;
+	float:left;
+}
+
+.friends img{
+	width:55px;
+}
+
+.groups img{
+	width:80px;
+	float:left;
+	margin-right:15px;
+}
+
+.group-item{
+	padding-bottom:10px;
+	margin-bottom:20px;
+	border-bottom:1px solid #ccc;
+	overflow:auto;
+}
+.members .member-row {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.members img {
+	margin-bottom: 5px;
+}
+
+.profile ul {
+	margin-top: 30px;
+
+}
+
+.profile li {
+	list-style: none;
+	line-height: 1.9em;
+}
+
+.photos {
+	margin: 0;
+	padding: 0;
+}
+
+.photos li {
+	list-style: none;
+	float: left;
+	margin: 5px;
+	width: 23%;
+}
+
+.photos img {
+	width: 100%;
+}
+
+footer{
+	background:#f4f4f4;
+	height:90px;
+	color:#04519b;
+	font-weight: bold;
+	text-align: center;
+	padding-top:40px;
+	margin-top:30px;
+	border-top:7px solid #04519b;
+}
+
+.main-content {
   margin-top: 35px;
 }
 
-/*
- * Typography
- */
-
-h1 {
-  margin-bottom: 20px;
-  padding-bottom: 9px;
-  border-bottom: 1px solid #eee;
+.chat-message {padding: 5px; margin: 5px 0;}
+.chat-list {
+   max-height: 500px; 
+   overflow: auto;
 }
 
-/*
- * Sidebar
- */
-
-.sidebar {
-  position: fixed;
-  top: 51px;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  padding: 20px;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  border-right: 1px solid #eee;
+.chat-list .row {
+  margin-top: 15px;
 }
 
-/* Sidebar navigation */
-.sidebar {
-  padding-left: 0;
-  padding-right: 0;
+.chat-list img{
+	width:30px;
+  text-align: right;
 }
 
-.sidebar .nav {
-  margin-bottom: 20px;
+
+@media(min-width: 991px) {
+	.members p {
+		padding-top: 40px;
+	}
 }
-
-.sidebar .nav-item {
-  width: 100%;
-}
-
-.sidebar .nav-item + .nav-item {
-  margin-left: 0;
-}
-
-.sidebar .nav-link {
-  border-radius: 0;
-}
-
-/*
- * Dashboard
- */
-
- /* Placeholders */
-.placeholders {
-  padding-bottom: 3rem;
-}
-
-.placeholder img {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.form-signin {
-  margin-top: 45px;
-}
-

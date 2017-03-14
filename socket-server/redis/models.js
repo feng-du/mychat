@@ -1,7 +1,7 @@
 const User = (id, name, type) => {
     if(arguments.length < 3) return new Error('Not enough args.');
 
-    return { id: id, user: name, type: type };
+    return { id: id, name: name, type: type };
 }
 
 const Chat = (message, room, user) => {

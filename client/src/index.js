@@ -13,7 +13,12 @@ import rootReducer from './reducers';
 import Router from './router';
 import { AUTH_USER } from './actions/types';
 
+import io from 'socket.io-client';
+import ChatSocket from './services/socket';
+
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));
+
+const socket = new ChatSocket(store.dispatch);
 
 localStorage.getItem('token') && store.dispatch({ type: AUTH_USER });
 

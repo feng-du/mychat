@@ -5,23 +5,23 @@ import UserIcon from './UserIcon';
 const ChatMessage = props => {
     const { me, chat } = props;
     
-    let pull;
-    if(me.id === chat.user.id)
-        pull = 'pull-right';
-    else
-        pull = 'pull-left';
+    let pull = 'flex-first', justify = '';
+    if(me.id === chat.user.id){
+        justify = 'justify-content-end';
+        pull = 'flex-last';
+    }
 
     const timeAgo = moment(chat.ts).fromNow();
     return(
-        <li>
-            <div className={`bg-primary chat-message ${pull}}`}>{chat.message}</div>
-            <div className="clearfix"></div>
-            <div className={pull}>
-                <UserIcon user={chat.user} size={20} useName={true} />
-                <small>{timeAgo}</small>
+        <div className={`d-flex flex-nowrap ${justify}`}>
+                <div className={`${pull} p-2`}>
+                    <UserIcon user={chat.user} size={20} useName={true} />
+                    <small>{timeAgo}</small>
+                </div>
+                <div>
+                    {chat.message}
+                    </div>
             </div>
-            <div className="clearfix"></div>
-        </li>    
     );
 }
 

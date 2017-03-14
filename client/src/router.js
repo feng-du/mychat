@@ -19,7 +19,7 @@ class RouterComponent extends Component{
                     <Route path='signup' component={SignupView} />
                     <Route path='signout' component={SignoutView} />
                     <Route path='room' component={RequireAuth(RoomView)} />
-                    <Route path='chart/:room' component={RequireAuth(ChatView)} />
+                    <Route path='chat/:room' component={RequireAuth(ChatView)} />
                 </Route>
             </Router>
         );

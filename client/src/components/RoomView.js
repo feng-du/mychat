@@ -4,8 +4,19 @@ import { Link } from 'react-router';
 import RoomForm from './chat/RoomForm';
 
 import { joinRoom } from '../actions';
+import ChatSocket from '../services/socket';
 
 class RoomView extends Component {
+    constructor(props) {
+        super(props);
+
+        this.socket = new ChatSocket(props.dispatch);
+    }
+
+    componentWillMount() {
+        this.socket.getRooms();
+    }
+
     handleSubmit(values){
         this.props.joinRoom(values.room);
     }
@@ -13,12 +24,13 @@ class RoomView extends Component {
     renderRoom(room) {
         return (
             <li key={room}>
-               <Link to={`chart/${room}`} >{room}</Link>
+               <Link to={`chat/${room}`} >{room}</Link>
             </li>
         );
     }
 
     render() {
+        console.log(this.props.rooms);
         return(
             <div className="container main-content">
                 <h1>Please select a room</h1>

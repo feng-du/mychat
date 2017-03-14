@@ -8,10 +8,10 @@ class ChatForm extends Component {
 
         return(
             <form onSubmit={handleSumbit}>
-                <div className="container">
+                <div className="container chat-form">
                     <div className="row">
                         <div className="col-sm-2">
-                            <UserIcon user={me} size={50} useName={true} />
+                            <span>{me.name}</span>
                         </div>
                         <div className="col-sm-8">
                             <Field name="message" component="input" type="text" className="form-control" required/>

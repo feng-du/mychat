@@ -4,7 +4,7 @@ const Navbar = (props) => {
     const { brand, children } = props;
 
     return (
-        <nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
             <button className="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

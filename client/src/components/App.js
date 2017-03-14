@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import io from 'socket.io-client';
-
+import NavPanel from './NavPanel';
 
 class App extends Component {
-    render() {
-        // const socket = io('http://localhost:3010/chat',{
-        //     query: `token=${localStorage.getItem('token')}`
-        // });
-        // socket.on('message', m => { console.log(m); });
+    render() {  
         return (
             <div>
                 <Header />
+                <NavPanel />
                 {this.props.children}
             </div>
         );

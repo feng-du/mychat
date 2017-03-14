@@ -42,12 +42,7 @@ async function getChats(room) {
 async function getRooms() {
     const rooms = await redis.getRooms();
 
-    const result = [];
-    for(let item in rooms){
-        result.push(models.room(item));
-    }
-
-    return result;
+    return rooms;
 }
 
 
@@ -84,7 +79,7 @@ const socketConnection = socket => {
 		socket.emit('AddChat', newChat);
      });
 
-	socket.on('GetRoom', () => socket.emit('GetRoom', getRooms()) );
+	socket.on('GetRoom', async () => socket.emit('GetRoom', await getRooms()) );
 
 	socket.on('AddRoom', r => {
 		var room = r.name;
