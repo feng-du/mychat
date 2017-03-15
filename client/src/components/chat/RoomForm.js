@@ -16,7 +16,7 @@ class RoomForm extends Component {
 }
 
 const roomReduxForm = reduxForm({
-    form: 'room'
+    form: 'roomForm'
 })(RoomForm);
 
-export default connect()(roomReduxForm);
+export default roomReduxForm;

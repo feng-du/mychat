@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import RoomForm from './chat/RoomForm';
 
-import { joinRoom } from '../actions';
 import ChatSocket from '../services/socket';
 
 class RoomView extends Component {
@@ -18,7 +17,7 @@ class RoomView extends Component {
     }
 
     handleSubmit(values){
-        this.props.joinRoom(values.room);
+        this.socket.addRoom(values.room);
     }
 
     renderRoom(room) {
@@ -49,4 +48,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { joinRoom })(RoomView);
+export default connect(mapStateToProps)(RoomView);

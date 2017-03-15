@@ -25,16 +25,24 @@ function removeAllRooms(socket) {
 
 
 async function getChats(room) {
-    const charts = await redis.getChat(room);
+    const chats = await redis.getChat(room);
 
     const result = [];
-    for(let item in charts){
+    chats.forEach(c => {
         try{
             result.push(JSON.parse(c));
         }catch(e){
             // log.error(e.message);
         }
-    }
+    });
+
+    // for(let index in chats){
+    //     try{
+    //         result.push(JSON.parse(c));
+    //     }catch(e){
+    //         // log.error(e.message);
+    //     }
+    // }
     
     return result;
 }
@@ -69,7 +77,7 @@ const socketConnection = socket => {
         socket.emit('GetUser', users);
     });
 
-	socket.on('GetChat', data => socket.emit('GetChat', getChats(data.room)) );
+	socket.on('GetChat', async room => socket.emit('GetChat', await getChats(room)) );
 
 	socket.on('AddChat', chat => { 
         const newChat = models.Chat(chat.message, chat.room, user);
@@ -81,15 +89,14 @@ const socketConnection = socket => {
 
 	socket.on('GetRoom', async () => socket.emit('GetRoom', await getRooms()) );
 
-	socket.on('AddRoom', r => {
-		var room = r.name;
+	socket.on('AddRoom', room => {
 		removeAllRooms(socket);
 
         if (room !== '')
         {
             socket.join(room);
             redis.addRoom(room);
-            socket.broadcast.emit('AddRoom', models.Room(room));
+            socket.broadcast.emit('AddRoom', room);
             socket.broadcast.to(room).emit('AddUser', user);
             redis.addUserToRoom(user.id, room);
         }

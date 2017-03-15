@@ -9,9 +9,20 @@ import ChatForm from './chat/ChatForm';
 import LeftPanel from './LeftPanel';
 import RightPanel from './RightPanel';
 
+import ChatSocket from '../services/socket';
+
 class ChatView extends Component {
+    constructor(props) {
+        super(props);
+
+        this.socket = new ChatSocket(props.dispatch);
+    }
+
     componentWillMount() {
         // console.log(this.props.params.room);
+        const { room } = this.props.params;
+        this.socket.getUsersInRoom(room);
+        this.socket.getChatsInRoom(room);
     }
 
     handleSubmit(values) {
