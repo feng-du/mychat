@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import RoomForm from './chat/RoomForm';
+import * as actions from '../actions';
 
 import ChatSocket from '../services/socket';
 
@@ -17,6 +18,7 @@ class RoomView extends Component {
     }
 
     handleSubmit(values){
+        // this.props.AddRoom(values.room);
         this.socket.addRoom(values.room);
     }
 
@@ -48,4 +50,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(RoomView);
+export default connect(mapStateToProps, actions)(RoomView);

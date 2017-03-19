@@ -21,12 +21,15 @@ class ChatView extends Component {
     componentWillMount() {
         // console.log(this.props.params.room);
         const { room } = this.props.params;
+        // this.socket.addRoom(room);
         this.socket.getUsersInRoom(room);
         this.socket.getChatsInRoom(room);
     }
 
     handleSubmit(values) {
-
+        const { room } = this.props.params;
+        const message = values.message;
+        this.socket.addChat({ message, room });
     }
 
     render() {

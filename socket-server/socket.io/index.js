@@ -74,6 +74,7 @@ const socketConnection = socket => {
     socket.on('GetMe', () => socket.emit('GetMe', user) );
 	socket.on('GetUser', async room => {
         const users = await redis.getUsersInRoom(room);
+        console.log(users);
         socket.emit('GetUser', users);
     });
 

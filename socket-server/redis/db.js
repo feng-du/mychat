@@ -62,8 +62,8 @@ exports.removeUserFromRoom = (userId, room) => {
 exports.getUsersInRoom = async room => {
     const data = await client.zrangeAsync('rooms:' + room, 0, -1);
     var users = [];
-    for(let item in data){
-        const userHash = client.hgetallAsync('user:' + item);
+    for(let item of data){
+        const userHash = await client.hgetallAsync('user:' + item);
         users.push(models.User(item, userHash.name, userHash.type));
     }
     

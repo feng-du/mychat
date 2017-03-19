@@ -31,6 +31,7 @@ class ChatSocket extends Singleton {
         });
 
         this.socket.on('GetUser', users => {
+            console.log(users);
             this.dispatch(actions.GetUsersInRoom(users));
         });
 
@@ -43,9 +44,12 @@ class ChatSocket extends Singleton {
         });
 
         this.socket.on('AddRoom', room => {
-
             this.dispatch(actions.AddRoom(room));
-        })
+        });
+
+        this.socket.on('AddChat', newChat => {
+            this.dispatch(actions.AddChat(newChat));
+        });
     }
 
     getMe() {
@@ -66,6 +70,10 @@ class ChatSocket extends Singleton {
 
     addRoom(room) {
         this.socket.emit('AddRoom', room);
+    }
+
+    addChat(chat) {
+        this.socket.emit('AddChat', chat);
     }
 }
 

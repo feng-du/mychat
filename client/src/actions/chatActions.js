@@ -1,9 +1,12 @@
+import { browserHistory } from 'react-router';
+
 import {
     GET_ME,
     GET_USERS_IN_ROOM,
     GET_ROOMS,
     GET_CHATS_IN_ROOM,
-    ADD_ROOM
+    ADD_ROOM,
+    ADD_CHAT
 } from './types';
 
 export const GetMe = user => {
@@ -35,8 +38,16 @@ export const GetChatsInRoom = chats => {
 }
 
 export const AddRoom = room => {
+    // browserHistory.push(`chat/${room}`);
     return {
         type: ADD_ROOM,
         payload: room
     };
+}
+
+export const AddChat = newChat => {
+    return {
+        type: ADD_CHAT,
+        payload: newChat
+    }
 }

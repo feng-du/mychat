@@ -4,10 +4,10 @@ import UserIcon from './UserIcon';
 
 class ChatForm extends Component {
     render() {
-        const { handleSumbit, me } = this.props;
+        const { handleSubmit, me } = this.props;
 
         return(
-            <form onSubmit={handleSumbit}>
+            <form onSubmit={handleSubmit}>
                 <div className="container chat-form">
                     <div className="row">
                         <div className="col-sm-2">
